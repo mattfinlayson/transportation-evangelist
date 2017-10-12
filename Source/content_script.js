@@ -37,6 +37,7 @@ function handleText(textNode)
 	var v = textNode.nodeValue;
 
 	v = v.replace(/\bself\-driving car\b/g, "city bus");
+	v = v.replace(/\bself\-driving cars\b/g, "city buses");
 	
 	textNode.nodeValue = v;
 }
