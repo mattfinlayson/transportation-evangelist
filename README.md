@@ -3,7 +3,7 @@ transportation-evangelist
 
 Chrome extension that replaces occurrences of 'self-driving car' with 'city bus'
 
-[Direct download of crx file](https://github.com/savagegus/transportation-evangelist/blob/master/Source.crx?raw=true)
+[Direct download of crx file](https://github.com/savagegus/transportation-evangelist/blob/master/TransportationEvangelist.crx?raw=true)
 
 Installation
 ------------

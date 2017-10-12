@@ -3,7 +3,7 @@
 	"name": "Transportation Evangelist",
 	"version": "1.0",
 	"description": "Replaces the text 'self-driving car' with 'city bus'.",
-	"content_scripts": 
+	"content_scripts":
 	[
 		{
 			"matches": ["*://*/*"],

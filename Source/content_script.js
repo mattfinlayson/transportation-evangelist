@@ -1,45 +1,24 @@
-walk(document.body);
+var elements = document.getElementsByTagName('*');
 
-function walk(node) 
-{
-	// I stole this function from here:
-	// http://is.gd/mwZp7E
-	
-	var child, next;
-	
-	if (node.tagName.toLowerCase() == 'input' || node.tagName.toLowerCase() == 'textarea'
-	    || node.classList.indexOf('ace_editor') > -1) {
-		return;
-	}
+for (var i = 0; i < elements.length; i++) {
+    var element = elements[i];
 
-	switch ( node.nodeType )  
-	{
-		case 1:  // Element
-		case 9:  // Document
-		case 11: // Document fragment
-			child = node.firstChild;
-			while ( child ) 
-			{
-				next = child.nextSibling;
-				walk(child);
-				child = next;
-			}
-			break;
+    for (var j = 0; j < element.childNodes.length; j++) {
+        var node = element.childNodes[j];
 
-		case 3: // Text node
-			handleText(node);
-			break;
-	}
-}
+        if (node.nodeType === 3) {
+			var text = node.nodeValue;
 
-function handleText(textNode) 
-{
-	var v = textNode.nodeValue;
+			var replacedText = text.replace(/Self\-Driving Cars/, 'City Buses');
+            replacedText = replacedText.replace(/self\-driving cars/, 'city buses');
+            replacedText = replacedText.replace(/self\-driving car/, 'city bus');
+            replacedText = replacedText.replace(/Self\-Driving Car/, 'City Bus');
 
-	v = v.replace(/\bself\-driving car\b/g, "city bus");
-	v = v.replace(/\bself\-driving cars\b/g, "city buses");
-	
-	textNode.nodeValue = v;
+            if (replacedText !== text) {
+                element.replaceChild(document.createTextNode(replacedText), node);
+            }
+        }
+    }
 }
 
 
